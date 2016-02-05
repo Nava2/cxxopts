@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-add_executable(example example.cpp)
+add_executable(example example.cpp cxxopts.hpp)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 target_link_libraries(example ${CXXOPTS_LINKER_LIBRARIES})
