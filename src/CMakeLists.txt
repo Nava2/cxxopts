@@ -23,4 +23,8 @@ add_executable(example example.cpp cxxopts.hpp)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
 target_link_libraries(example ${CXXOPTS_LINKER_LIBRARIES})
 
+if (MSVC)
+	target_compile_options(example PUBLIC /W2)
+endif()
+
 install(FILES cxxopts.hpp DESTINATION include)
