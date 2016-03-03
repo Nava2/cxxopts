@@ -18,12 +18,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-add_executable(example example.cpp cxxopts.hpp)
+if(CXXOPTS_BUILD_EXAMPLES)
+	add_executable(example example.cpp cxxopts.hpp)
 
-if (MSVC)
-	target_compile_options(example PUBLIC /W2)
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "[Cc]lang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-	target_compile_options(example PUBLIC -std=c++11 -Wall)
+	if (MSVC)
+		target_compile_options(example PUBLIC /W2)
+	elseif(CMAKE_CXX_COMPILER_ID MATCHES "[Cc]lang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+		target_compile_options(example PUBLIC -std=c++11 -Wall)
+	endif()
 endif()
 
 install(FILES cxxopts.hpp DESTINATION include)
